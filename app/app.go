@@ -7,7 +7,7 @@ import (
 	"github.com/toastsandwich/LCP/routes"
 )
 
-func Start() {
+func Start(port string) {
 	echo := config.Echo
 	routes.Init(echo)
 	fmt.Println("endpoints : ")
@@ -21,5 +21,5 @@ func Start() {
 	fmt.Println("getLabAssistantByID/:id")
 	fmt.Println("/addLabAssistant/")
 	fmt.Println("/deleteLabAssistant/:id")
-	echo.Logger.Fatal(echo.Start(":8080"))
+	echo.Logger.Fatal(echo.Start(port))
 }
