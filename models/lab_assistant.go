@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
+	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
 )
 
@@ -71,6 +72,12 @@ func AddLabAssistant(ctx echo.Context) error {
 	if err != nil {
 		return err
 	}
+	pass := labAssistant.Password
+	hash, err := bcrypt.GenerateFromPassword([]byte(pass), bcrypt.DefaultCost)
+	if err != nil {
+		return err
+	}
+	labAssistant.Password = string(hash)
 	err = createLabAssistant(&labAssistant)
 	if err != nil {
 		return err
