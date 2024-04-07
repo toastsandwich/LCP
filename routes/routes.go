@@ -16,6 +16,7 @@ import (
 )
 
 func Init(echo *echo.Echo) {
+	// echo.Use(middleware.LoggerWithConfig(middleware.DefaultLoggerConfig))
 	echo.GET("/getAllDoctors", models.GetAllDoctors)
 	echo.GET("/getDoctorByID/:id", models.GetDoctorByID)
 	echo.POST("/addDoctor/", models.AddDoctor, middleware.BodyLimit("1M"))

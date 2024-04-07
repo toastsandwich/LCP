@@ -6,6 +6,7 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/toastsandwich/LCP/config"
+	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
 )
 
@@ -27,7 +28,7 @@ func init() {
 
 func showAllDoctors() ([]*Doctor, error) {
 	var doctors []*Doctor
-	err := db.Model(&Doctor{}).Select("DocID", "FirstName", "LastName").Find(&doctors).Error
+	err := db.Model(&Doctor{}).Select("id", "DocID", "FirstName", "LastName").Find(&doctors).Error
 	if err != nil {
 		return nil, err
 	}
@@ -45,7 +46,7 @@ func showAllDoctors() ([]*Doctor, error) {
 
 func searchDoctorByDocID(docID string) (Doctor, error) {
 	var doctor Doctor
-	err := db.Where("DocID = ?", docID).Find(&doctor).Error
+	err := db.Where("doc_id = ?", docID).Find(&doctor).Error
 	if err != nil {
 		return Doctor{}, err
 	}
@@ -58,7 +59,8 @@ func createDoctor(newDoc *Doctor) error {
 
 func removeDoctor(docID string) error {
 	var doctor Doctor
-	return db.Where("DocID = ?", docID).Delete(&doctor).Error
+	fmt.Println(doctor)
+	return db.Where("doc_id = ?", docID).Delete(&doctor).Error
 }
 
 // ECHO
@@ -86,17 +88,20 @@ func GetDoctorByID(ctx echo.Context) error {
 
 func AddDoctor(ctx echo.Context) error {
 	var doc Doctor
-	fmt.Println("done")
 	err := ctx.Bind(&doc)
 	if err != nil {
 		return err
 	}
-	fmt.Println("done")
+	pass := doc.Password
+	hash, err := bcrypt.GenerateFromPassword([]byte(pass), bcrypt.DefaultCost)
+	if err != nil {
+		return err
+	}
+	doc.Password = string(hash)
 	err = createDoctor(&doc)
 	if err != nil {
 		return err
 	}
-	fmt.Println("done")
 	return ctx.JSON(http.StatusCreated, map[string]string{"message": "record created"})
 }
 
