@@ -52,13 +52,13 @@ func searchDoctorByDocID(docID string) (Doctor, error) {
 	return doctor, nil
 }
 
-func createDoctor(newDoc Doctor) error {
-	return db.Create(&newDoc).Error
+func createDoctor(newDoc *Doctor) error {
+	return db.Create(newDoc).Error
 }
 
 func removeDoctor(docID string) error {
 	var doctor Doctor
-	return db.Where("DocID = ", docID).Delete(&doctor).Error
+	return db.Where("DocID = ?", docID).Delete(&doctor).Error
 }
 
 // ECHO
@@ -92,7 +92,7 @@ func AddDoctor(ctx echo.Context) error {
 		return err
 	}
 	fmt.Println("done")
-	err = createDoctor(doc)
+	err = createDoctor(&doc)
 	if err != nil {
 		return err
 	}
