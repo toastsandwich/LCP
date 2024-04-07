@@ -16,7 +16,9 @@ type LabAssistant struct {
 }
 
 // MYSQL
-
+func init() {
+	db.AutoMigrate(&LabAssistant{})
+}
 func showAllLabAssistants() ([]*LabAssistant, error) {
 	var labAssistants []*LabAssistant
 	err := db.Model(&LabAssistant{}).Select("LabAsstID", "FirstName", "LastName").Select(&labAssistants).Error
