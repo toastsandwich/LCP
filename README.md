@@ -1,4 +1,4 @@
-# LIVER-PATIENT-ANALYSIS
+# LIVER-CIRRHOSIS-PREDICTION 
 
 ### Objectives of Research
 In India, delayed diagnosis of diseases is a fundamental problem due to a shortage of medical
