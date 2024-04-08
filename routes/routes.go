@@ -13,10 +13,11 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/toastsandwich/LCP/models"
+	"github.com/toastsandwich/LCP/static/home"
 )
 
 func Init(echo *echo.Echo) {
-	// echo.Use(middleware.LoggerWithConfig(middleware.DefaultLoggerConfig))
+	echo.Use(middleware.LoggerWithConfig(middleware.DefaultLoggerConfig))
 	echo.GET("/getAllDoctors", models.GetAllDoctors)
 	echo.GET("/getDoctorByID/:id", models.GetDoctorByID)
 	echo.POST("/addDoctor/", models.AddDoctor, middleware.BodyLimit("1M"))
@@ -26,4 +27,6 @@ func Init(echo *echo.Echo) {
 	echo.GET("/getLabAssistantByID/:id", models.GetLabAssistantByID)
 	echo.POST("/addLabAssistant/", models.AddLabAssistant, middleware.BodyLimit("1M"))
 	echo.DELETE("/deleteLabAssistant/:id", models.DeleteLabAssistant)
+
+	echo.GET("/", home.Home)
 }
