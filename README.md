@@ -1,1 +1,1 @@
-# LCP
+# LCP - Liver Cirrohsis Prediction
