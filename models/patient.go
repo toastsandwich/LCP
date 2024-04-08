@@ -82,12 +82,16 @@ func CreatePatient(ctx echo.Context) error {
 	if err != nil {
 		return err
 	}
+	err = createPatient(patient)
+	if err != nil {
+		return err
+	}
 	return ctx.JSON(http.StatusOK, map[string]string{"message": "record created"})
 }
 
 func DeletePatient(ctx echo.Context) error {
 	id := ctx.Param("id")
-	err := removeDoctor(id)
+	err := removePatient(id)
 	if err != nil {
 		return err
 	}
