@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            height: 180px;
+            background-color: #3AAFA9;
+        }
+
+        .picture {
+            background-image: url("Resources/Adminsepm-removebg-preview.png");
+            height: 130px;
+            width: 130px;
+            border-radius: 50%;
+            background-color: transparent;
+            background-position: center;
+            margin-left: 50px;
+        }
+
+        .options {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .head {
+            font-size: 90px;
+            margin-left: 30px;
+            margin-top: 20px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .login-button {
+            margin: 0 10px;
+            padding: 15px 30px;
+            font-size: 15px;
+            background-color: #3AAFA9;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: #2B7A78;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            height: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .head {
+            background-color: #3AAFA9;
+            height: 150px;
+            align-items: center;
+            display: flex;
+        }
+
+        h1, head {
+            margin-left: 40%;
+        }
+
+        #searchBar {
+            margin-top: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 60%;
+            margin-left: 10px;
+            box-sizing: border-box;
+        }
+
+        #doctorList {
+            margin-top: 20px;
+            max-height: calc(100% - 90px);
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #doctorList table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #doctorList th, #doctorList td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #doctorList th {
+            background-color: #f2f2f2;
+        }
+
+        #doctorList tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #doctorList tbody tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="heading">
+        <div class="picture"></div>
+        <div class="head">
+            <p>Doctor Work Space</p>
+        </div>
+    </div>
+</header>
+
+
+
+<div class="container">
+
+    <input type="text" id="searchBar" placeholder="Search Doctor...">
+    <a href="display_patient_doctor.html" class="login-button">View</a>
+    <div id="doctorList">
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient's Name</th>
+                    
+           
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dummy Doctor Data -->
+                <tr><td>Dr. John Doe</td></tr>
+                <tr><td>Dr. Jane Smith</td></tr>
+                <tr><td>Dr. Michael Johnson</td></tr>
+                <tr><td>Dr. Emily Brown</td></tr>
+                <tr><td>Dr. David Wilson</td></tr>
+                <tr><td>Dr. Sarah Martinez</td></tr>
+                <tr><td>Dr. James Lee</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    const searchBar = document.getElementById('searchBar');
+    const doctorList = document.getElementById('doctorList');
+
+    searchBar.addEventListener('keyup', function(event) {
+        const searchQuery = event.target.value.toLowerCase();
+        const rows = doctorList.getElementsByTagName('tr');
+
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            const cells = row.getElementsByTagName('td');
+            let found = false;
+            for (let j = 0; j < cells.length; j++) {
+                const cell = cells[j];
+                if (cell.textContent.toLowerCase().includes(searchQuery)) {
+                    found = true;
+                    break;
+                }
+            }
+            if (found) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
+
+

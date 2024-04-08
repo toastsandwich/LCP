@@ -1,0 +1,63 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.heading {
+    display: flex; /* Add flexbox */
+    align-items: center; /* Center items vertically */
+    height: 180px;
+    background-color: #3AAFA9;
+    /* Adjust space between items */
+}
+
+.picture {
+    background-image: url("Resources/Adminsepm-removebg-preview.png");
+    height: 130px;
+    width: 130px;
+    border-radius: 50%; /* Circular shape */
+    background-color: transparent;
+    background-position: center;
+    margin-left: 50px;
+}
+
+.options {
+    text-align: center; /* Center-align the buttons */
+    margin-top: 50px; /* Adjust spacing */
+}
+
+.head {
+    font-size: 90px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.button-group {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 100px; /* Increase the gap between rows */
+    column-gap: 200px; /* Increase the gap between columns */
+    align-items: center;
+    justify-content: center;
+}
+
+.login-button {
+    display: inline-block;
+    padding: 60px; /* Uniform padding for all sides */
+    font-size: 15px; /* Increase font size */
+    background-color: #3AAFA9;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px; /* Increase border radius */
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #2B7A78;
+}
