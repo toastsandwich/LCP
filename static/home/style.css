@@ -5,8 +5,7 @@
   }
   
   body {
-    background-image:url("/assests/medback.jpg");
-    /* background-color:#ff512f; */
+    background-image:url("/assets/medback.jpg");
     background-size: cover;
   }
   
@@ -48,14 +47,14 @@
     
    
   } */
-  .shape2{
+  /* .shape2{
     background: linear-gradient(
         to right,
         #ff512f,
         #f09819
     );
    
-  }
+  } */
   .button-group {
     display: flex;
     justify-content: space-evenly;

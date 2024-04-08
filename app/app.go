@@ -9,7 +9,8 @@ import (
 
 func Start(port string) {
 	echo := config.Echo
-	echo.Static("/static", "static")
+	echo.Static("/static/", "static")
+	echo.Static("/assets/", "assets")
 	routes.Init(echo)
 	fmt.Println("endpoints : ")
 	fmt.Println("[+] Doctor")
