@@ -23,7 +23,7 @@ func Init(echo *echo.Echo) {
 	echo.DELETE("/deleteDoctor/:id", models.DeleteDoctor)
 
 	echo.GET("/getAllLabAssistants", models.GetAllLabAssistants)
-	echo.GET("getLabAssistantByID/:id", models.GetLabAssistantByID)
+	echo.GET("/getLabAssistantByID/:id", models.GetLabAssistantByID)
 	echo.POST("/addLabAssistant/", models.AddLabAssistant, middleware.BodyLimit("1M"))
 	echo.DELETE("/deleteLabAssistant/:id", models.DeleteLabAssistant)
 }

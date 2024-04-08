@@ -14,10 +14,13 @@ var db = config.DB
 
 type Doctor struct {
 	gorm.Model
-	DocID     string `json:"doc_id"`
-	FirstName string `json:"first_name"`
-	LastName  string `json:"last_name"`
-	Password  string `json:"password"`
+	DocID       string `json:"doc_id"`
+	FirstName   string `json:"first_name"`
+	LastName    string `json:"last_name"`
+	Gender      string `json:"gender"`
+	Email       string `json:"email"`
+	PhoneNumber string `json:"phone_number"`
+	Password    string `json:"password"`
 }
 
 // MYSQL
