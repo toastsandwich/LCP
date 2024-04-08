@@ -9,7 +9,7 @@ import (
 
 type Patient struct {
 	gorm.Model
-	PatientID string  `json: "patient_id"`
+	PatientID string  `json:"patient_id"`
 	FirstName string  `json:"first_name"`
 	LastName  string  `json:"last_name"`
 	Gender    string  `json:"gender"`
