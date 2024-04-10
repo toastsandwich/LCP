@@ -28,8 +28,10 @@
         .heading {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             height: 180px;
             background-color: #3AAFA9;
+            padding: 0 20px;
         }
 
         .picture {
@@ -39,17 +41,32 @@
             border-radius: 50%;
             background-color: transparent;
             background-position: center;
-            margin-left: 50px;
-        }
-
-        .options {
-            text-align: center;
-            margin-top: 20px;
         }
 
         .head {
             font-size: 90px;
             margin-left: 30px;
+            margin-top: 20px;
+            color: white;
+        }
+
+        .logout-button {
+            padding: 10px 20px;
+            font-size: 15px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-button:hover {
+            background-color: #d32f2f;
+        }
+
+        .options {
+            text-align: center;
             margin-top: 20px;
         }
 
@@ -103,18 +120,6 @@
             text-align: center;
             margin-bottom: 20px;
             color: #333;
-        }
-
-        .head {
-            background-color: #3AAFA9;
-            height: 150px;
-            align-items: center;
-            display: flex;
-        }
-
-        h1,
-        head {
-            margin-left: 40%;
         }
 
         #searchBar,
@@ -176,6 +181,9 @@
             <div class="picture"></div>
             <div class="head">
                 <p>Admin Work Space</p>
+            </div>
+            <div class="logout">
+                <button class="logout-button" onclick="logout()">Logout</button>
             </div>
         </div>
     </header>
@@ -247,7 +255,7 @@
         function searchTable(searchQuery, table) {
             const rows = table.getElementsByTagName('tr');
 
-            for (let i = 0; i < rows.length; i++) {
+            for (let i = 1; i < rows.length; i++) {
                 const row = rows[i];
                 const cells = row.getElementsByTagName('td');
                 let found = false;
