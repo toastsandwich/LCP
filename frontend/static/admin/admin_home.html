@@ -16,6 +16,15 @@
             box-sizing: border-box;
         }
 
+        body,
+        html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
         .heading {
             display: flex;
             align-items: center;
@@ -82,21 +91,12 @@
             background-color: #ff3333;
         }
 
-        body,
-        html {
-            height: 100%;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
         .container {
-            height: 100%;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
         }
 
         h1 {
@@ -117,7 +117,8 @@
             margin-left: 40%;
         }
 
-        #searchBar {
+        #searchBar,
+        #searchLabAssistantBar {
             margin-top: 10px;
             padding: 8px;
             border: 1px solid #ccc;
@@ -128,7 +129,8 @@
             box-sizing: border-box;
         }
 
-        #doctorList {
+        #doctorList,
+        #labAssistantList {
             margin-top: 20px;
             max-height: calc(100% - 90px);
             overflow-y: auto;
@@ -136,27 +138,33 @@
             border-radius: 4px;
         }
 
-        #doctorList table {
+        #doctorList table,
+        #labAssistantList table {
             width: 100%;
             border-collapse: collapse;
         }
 
         #doctorList th,
-        #doctorList td {
+        #doctorList td,
+        #labAssistantList th,
+        #labAssistantList td {
             padding: 8px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
 
-        #doctorList th {
+        #doctorList th,
+        #labAssistantList th {
             background-color: #f2f2f2;
         }
 
-        #doctorList tbody tr:nth-child(even) {
+        #doctorList tbody tr:nth-child(even),
+        #labAssistantList tbody tr:nth-child(even) {
             background-color: #f2f2f2;
         }
 
-        #doctorList tbody tr:hover {
+        #doctorList tbody tr:hover,
+        #labAssistantList tbody tr:hover {
             background-color: #ddd;
         }
     </style>
@@ -174,7 +182,7 @@
 
     <div class="options">
         <div class="button-group">
-            <button onclick="window.open('http://localhost:8080/admin/register/doctor', '_parent')" class="login-button">Register Doctor</button>
+            <button onclick="window.open('http://localhost:8080/admin/register/doctor/', '_parent')" class="login-button">Register Doctor</button>
             <button onclick="window.open('http://localhost:8080/admin/register/labassistant/', '_parent')" class="login-button">Register Lab Assistant</button>
         </div>
     </div>
@@ -200,16 +208,45 @@
                 </tbody>
             </table>
         </div>
+
+        <input type="text" id="searchLabAssistantBar" placeholder="Search Lab Assistant...">
+        <div id="labAssistantList">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assistant ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Lab assistant data will be populated here dynamically -->
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script>
         const searchBar = document.getElementById('searchBar');
         const doctorList = document.getElementById('doctorList');
-    
+        const searchLabAssistantBar = document.getElementById('searchLabAssistantBar');
+        const labAssistantList = document.getElementById('labAssistantList');
+
         searchBar.addEventListener('keyup', function (event) {
-            const searchQuery = event.target.value.toLowerCase();
-            const rows = doctorList.getElementsByTagName('tr');
-    
+            searchTable(event.target.value.toLowerCase(), doctorList);
+        });
+
+        searchLabAssistantBar.addEventListener('keyup', function (event) {
+            searchTable(event.target.value.toLowerCase(), labAssistantList);
+        });
+
+        function searchTable(searchQuery, table) {
+            const rows = table.getElementsByTagName('tr');
+
             for (let i = 0; i < rows.length; i++) {
                 const row = rows[i];
                 const cells = row.getElementsByTagName('td');
@@ -227,8 +264,8 @@
                     row.style.display = 'none';
                 }
             }
-        });
-    
+        }
+
         function fetchDoctorsAndUpdateTable() {
             fetch('http://localhost:8081/getAllDoctors', {
                 method: 'GET',
@@ -264,9 +301,53 @@
                 console.error('Error fetching data:', error);
             });
         }
-    
+
+        function fetchLabAssistantsAndUpdateTable() {
+            fetch('http://localhost:8081/getAllLabAssistants', {
+                method: 'GET',
+                mode: 'cors', // Ensure CORS mode is set
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const tbody = labAssistantList.querySelector('tbody');
+                tbody.innerHTML = ''; // Clear existing table rows
+                data.forEach(labAssistant => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${labAssistant.lab_asst_id}</td>
+                        <td>${labAssistant.first_name} ${labAssistant.last_name}</td>
+                        <td>${labAssistant.age}</td>
+                        <td>${labAssistant.gender}</td>
+                        <td>${labAssistant.phone_number}</td>
+                        <td>${labAssistant.email}</td>
+                        <td><button class="delete-button" onclick="deleteLabAssistant('${labAssistant.lab_asst_id}')">Delete</button></td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+        }
+
         function deleteDoctor(docId) {
-            fetch(`http://localhost:8081/deleteDoctor/${docId}`, {
+            deleteEntity('Doctor', docId);
+        }
+
+        function deleteLabAssistant(assistantId) {
+            deleteEntity('LabAssistant', assistantId);
+        }
+
+        function deleteEntity(entityType, entityId) {
+            fetch(`http://localhost:8081/delete${entityType}/${entityId}`, {
                 method: 'DELETE',
                 mode: 'cors', // Ensure CORS mode is set
                 headers: {
@@ -278,19 +359,25 @@
                     throw new Error('Network response was not ok');
                 }
                 // Handle successful deletion as needed
-                console.log('Doctor deleted successfully.');
+                console.log(`${entityType.charAt(0).toUpperCase() + entityType.slice(1)} deleted successfully.`);
                 // Update the table after deletion
-                fetchDoctorsAndUpdateTable();
+                if (entityType === 'Doctor') {
+                    fetchDoctorsAndUpdateTable();
+                } else if (entityType === 'LabAssistant') {
+                    fetchLabAssistantsAndUpdateTable();
+                }
             })
             .catch(error => {
-                console.error('Error deleting doctor:', error);
+                console.error(`Error deleting ${entityType}:`, error);
             });
         }
-    
-        // Fetch and populate the table initially
+
+        // Fetch and populate the tables initially
         fetchDoctorsAndUpdateTable();
+        fetchLabAssistantsAndUpdateTable();
+
     </script>
-    
+
 </body>
 
 </html>
