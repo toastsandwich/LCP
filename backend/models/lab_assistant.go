@@ -26,7 +26,7 @@ func init() {
 }
 func showAllLabAssistants() ([]*LabAssistant, error) {
 	var labAssistants []*LabAssistant
-	err := db.Model(&LabAssistant{}).Select("LabAsstID", "FirstName", "LastName").Select(&labAssistants).Error
+	err := db.Model(&LabAssistant{}).Select("LabAsstID", "FirstName", "LastName", "Gender", "age", "Email", "PhoneNumber").Find(&labAssistants).Error
 	if err != nil {
 		return nil, err
 	}
