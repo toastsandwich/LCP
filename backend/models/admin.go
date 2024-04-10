@@ -5,12 +5,15 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
+	"github.com/toastsandwich/LCP/config"
 )
 
 type Admin struct {
 	Username string
 	Password string
 }
+
+var db = config.DB
 
 func init() {
 	db.AutoMigrate(&Admin{})

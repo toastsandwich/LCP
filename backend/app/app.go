@@ -4,12 +4,12 @@ import (
 	"fmt"
 
 	"github.com/toastsandwich/LCP/config"
-	"github.com/toastsandwich/LCP/routes"
+	"github.com/toastsandwich/LCP/handlers"
 )
 
 func Start(port string) {
 	echo := config.Echo
-	routes.Init(echo)
+	handlers.Init(echo)
 	fmt.Println("endpoints : ")
 	fmt.Println("[+] Doctor")
 	fmt.Println("/getAllDoctors")
