@@ -23,10 +23,10 @@ Any patient whose age exceeded 89 is listed as being of age "90"
 
 ### Team Members
 
-- [@ShreyasMali]() - **Shreyas Mali** 
-- [@PrasannaPandhare]() - **Prasanna Pandhare**
-- [@VaishnaviNaik]() - **Vaishnavi Naik**
-- [@VirendraMuley]() - **Virendra Muley**
+- [@ShreyasMali](https://github.com/toastsandwich) - **Shreyas Mali** 
+- [@PrasannaPandhare](https://github.com/Prasannapandhare) - **Prasanna Pandhare**
+- [@VaishnaviNaik](https://github.com/vaishnavi0022) - **Vaishnavi Naik**
+- [@VirendraMuley](https://github.com/Viren7502) - **Virendra Muley**
 
 
 ### Context
