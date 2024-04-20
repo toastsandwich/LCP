@@ -8,7 +8,7 @@ func init() {
 
 func ShowAllPatients() ([]*models.Patient, error) {
 	var patients []*models.Patient
-	err := db.Model(&models.Patient{}).Select("id", "patient_id", "first_name", "last_name", "gender", "age", "tb", "db", "alkphos", "sgpt", "sgot", "alb", "ag_ratio", "selector").Select(&patients).Error
+	err := db.Model(&models.Patient{}).Select("patient_id", "first_name", "last_name", "gender", "phone_number", "e_mail", "age", "tb", "db", "alkphos", "sgpt", "sgot", "alb", "ag_ratio", "selector").Find(&patients).Error
 	if err != nil {
 		return nil, err
 	}

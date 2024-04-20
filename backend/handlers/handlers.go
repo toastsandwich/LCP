@@ -27,4 +27,6 @@ func Init(echo *echo.Echo) {
 	echo.DELETE("/deletePatient/:id", controllers.DeletePatient)
 
 	echo.POST("/adminLogin", models.AdminLogin)
+	echo.POST("/doctorLogin", controllers.DoctorLogin)
+	echo.POST("/labAsstLogin", controllers.LabAsstLogin)
 }

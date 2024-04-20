@@ -1,6 +1,9 @@
 package query
 
-import "github.com/toastsandwich/LCP/models"
+import (
+	"github.com/toastsandwich/LCP/models"
+	"golang.org/x/crypto/bcrypt"
+)
 
 func init() {
 	db.AutoMigrate(&models.LabAssistant{})
@@ -30,4 +33,16 @@ func CreateLabAssistant(newEntry *models.LabAssistant) error {
 func RemoveLabAssistant(lab_asst_id string) error {
 	var labAssistant models.LabAssistant
 	return db.Where("lab_asst_id = ?", lab_asst_id).Delete(&labAssistant).Error
+}
+
+func AttemptLogin_LABASST(labAsstID, password string) *models.LabAssistant {
+	var possibles []models.LabAssistant
+	db.Where("lab_asst_id = ?", labAsstID).Find(&possibles)
+	for _, doc := range possibles {
+		err := bcrypt.CompareHashAndPassword([]byte(doc.Password), []byte(password))
+		if err == nil {
+			return &doc
+		}
+	}
+	return nil
 }

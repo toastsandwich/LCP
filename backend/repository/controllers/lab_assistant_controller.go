@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -52,4 +53,17 @@ func DeleteLabAssistant(ctx echo.Context) error {
 		return err
 	}
 	return ctx.JSON(http.StatusOK, map[string]string{"message": "record removed"})
+}
+
+func LabAsstLogin(ctx echo.Context) error {
+	labAsstID := ctx.FormValue("labAsstID")
+	password := ctx.FormValue("password")
+	labAsst := query.AttemptLogin_LABASST(labAsstID, password)
+	fmt.Println(labAsstID)
+	fmt.Println(labAsst)
+	if labAsst != nil {
+		return ctx.Redirect(http.StatusFound, "http://localhost:8080/lab-assistant/home?lab_asst_id="+labAsst.LabAsstID+"&first_name="+labAsst.FirstName+"&last_name="+labAsst.LastName)
+	} else {
+		return ctx.Redirect(http.StatusFound, "http://localhost:8080/lab-assistant/login")
+	}
 }

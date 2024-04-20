@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -56,4 +57,16 @@ func DeleteDoctor(ctx echo.Context) error {
 		return err
 	}
 	return ctx.JSON(http.StatusOK, map[string]string{"message": "record deleted"})
+}
+
+func DoctorLogin(ctx echo.Context) error {
+	docid := ctx.FormValue("docid")
+	password := ctx.FormValue("password")
+	doc := query.AttemptLogin_DOC(docid, password)
+	fmt.Println(doc)
+	if doc != nil {
+		return ctx.Redirect(http.StatusFound, "http://localhost:8080/doctor/home?doc_id="+doc.DocID+"&first_name="+doc.FirstName+"&last_name="+doc.LastName)
+	} else {
+		return ctx.Redirect(http.StatusFound, "http://localhost:8080/doctor/login")
+	}
 }
