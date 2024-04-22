@@ -1,6 +1,7 @@
 # **🏥 Liver Cirrhosis Prediction System**
 Welcome to the Liver Cirrhosis Prediction System! Our goal is to empower healthcare professionals with advanced tools for early detection of liver cirrhosis, enabling timely medical intervention and personalized patient care.
 
+---
 
 ## **🎯 Objectives of Research**
 In India, delayed diagnosis of diseases is a fundamental problem due to a shortage of medical professionals. A typical scenario, prevalent mostly in rural and somewhat in urban areas is:
@@ -11,19 +12,17 @@ In India, delayed diagnosis of diseases is a fundamental problem due to a shorta
 
 This project aims to reduce the time delay caused due to the unnecessary back and forth shuttling between the hospital and the pathology lab. Here a machine learning algorithm will be trained to predict a liver disease in patients using a data-set Indian Liver Patient Dataset (ILPD) provides a wealth of clinical data containing a variety of attributes suitable for comprehensive analysis and predictive modeling in liver disease research collected from Kaggle.
 
-
 ## **📝 Problem Statement**
 Liver cirrhosis is a serious and progressive liver disease that can lead to severe complications and death if not detected and treated early. Currently, the detection and diagnosis of liver cirrhosis rely heavily on invasive procedures and clinical assessments, which may not always be timely or accessible to all patients. The Liver Cirrhosis Prediction System aims to provide healthcare professionals with a non-invasive and efficient method for assessing a patient's risk of developing liver cirrhosis, utilizing machine learning models and patient data.
-### **📍 Context**
-Patients with Liver disease have been continuously increasing because of excessive consumption of alcohol, inhale of harmful gases, intake of contaminated food, pickles and drugs. This dataset was used to evaluate prediction algorithms in an effort to reduce burden on doctors.
 
+## **📍 Context**
+Patients with Liver disease have been continuously increasing because of excessive consumption of alcohol, inhale of harmful gases, intake of contaminated food, pickles and drugs. This dataset was used to evaluate prediction algorithms in an effort to reduce burden on doctors.
 
 ## **👥 Group Members**
 - [@ShreyasMali](https://github.com/toastsandwich) - **Shreyas Mali** 
 - [@PrasannaPandhare](https://github.com/Prasannapandhare) - **Prasanna Pandhare**
 - [@VaishnaviNaik](https://github.com/vaishnavi0022) - **Vaishnavi Naik**
 - [@VirendraMuley](https://github.com/Viren7502) - **Virendra Muley**
-
 
 ## **📊 Dataset**
 The Liver Cirrhosis Prediction System utilizes a comprehensive dataset collected from Kaggle that includes various clinical and demographic data points related to liver cirrhosis. The dataset is carefully validated and cleaned to ensure high-quality data for training and testing machine learning models.
@@ -42,8 +41,7 @@ The dataset for the Liver Cirrhosis Prediction System consists of the following 
 * Alkphos (Alkaline Phosphatase): An enzyme associated with the biliary system; elevated levels may indicate liver or bone issues.
 
 ---
-## **🖼️ Screenshots**
-
+### **🖼️ Screenshots**
 👉 **Home Page of LCP**
 ![Home Page](https://github.com/toastsandwich/LCP/blob/main/GUI/home.png)
 
@@ -67,6 +65,7 @@ The dataset for the Liver Cirrhosis Prediction System consists of the following 
 
 👉 **Report View**
 ![MLModelUI](https://github.com/toastsandwich/LCP/blob/main/GUI/reportView.png)
+
 ---
 
 ### **🌟 Highlights**
@@ -74,22 +73,22 @@ The dataset for the Liver Cirrhosis Prediction System consists of the following 
 2. User-Friendly Interface: A seamless, intuitive web interface designed for medical practitioners.
 3. Secure and Compliant: Adhering to data privacy and healthcare regulations, ensuring safe handling of patient data.
 
-### **🔥 Key Features**
+#### **🔥 Key Features**
 1. Predictive Modeling: Leverage machine learning algorithms for accurate liver cirrhosis risk assessment.
 2. Data Visualization: Clear and concise results presented for easy interpretation and action.
 3. Interoperability: Seamless integration with existing healthcare systems and databases.
 
-### **🛠️ Usage**
+#### **🛠️ Usage**
 1. Log In: Authenticate as a user (doctor, operator, etc.).
 2. Input Data: Provide patient information and clinical data.
 3. View Predictions: Access liver cirrhosis risk assessments and reports.
 
-### **✨ Results and Benefits**
+#### **✨ Results and Benefits**
 1. Improved Patient Outcomes: Early detection leads to better treatment and prognosis.
 2. Streamlined Workflow: Enhance healthcare efficiency and resource allocation.
 3. Contribute to Research: Advance medical knowledge through data-driven insights.
 
-#### **📄 License**
+##### **📄 License**
 
 ---
-##### Thank you, feel free to leave suggestions / edits
+###### Thank you, feel free to leave suggestions / edits
