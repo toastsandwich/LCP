@@ -44,14 +44,29 @@ The dataset for the Liver Cirrhosis Prediction System consists of the following 
 
 ## **🖼️ Screenshots**
 
-👉 **Home Page**
-
+👉 **Home Page of LCP**
 ![Home Page](https://github.com/toastsandwich/LCP/blob/main/GUI/home.png)
 
-👉 **UI of the project**
+👉 **Admin's Workspace**
+![MLModelUI](https://github.com/toastsandwich/LCP/blob/main/GUI/adminWorkSpace.png)
 
-![MLModelUI](https://github.com/AbhishekMali21/LIVER-PATIENT-ANALYSIS/blob/master/Screenshots/ML%20Modek%20UI.png)
+👉 **Admin adding Doctor**
+![MLModelUI](https://github.com/toastsandwich/LCP/blob/main/GUI/addDoctor.png)
 
+👉 **Doctor's Home Page**
+![MLModelUI](https://github.com/toastsandwich/LCP/blob/main/GUI/doctorHomepage.png)
+
+👉 **Report View**
+![MLModelUI](https://github.com/toastsandwich/LCP/blob/main/GUI/reportView.png)
+
+👉 **Admin adding Lab Assistant**
+![MLModelUI](https://github.com/toastsandwich/LCP/blob/main/GUI/addLabAssistant.png)
+
+👉 **Lab Assiatant registering Patient**
+![MLModelUI](https://github.com/toastsandwich/LCP/blob/main/GUI/patientRegistration.png)
+
+👉 **Report View**
+![MLModelUI](https://github.com/toastsandwich/LCP/blob/main/GUI/reportView.png)
 
 ### **🌟 Highlights**
 1. High Accuracy: Leverage Random Forest models for precise predictions of liver cirrhosis risk.
