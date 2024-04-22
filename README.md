@@ -41,7 +41,7 @@ The dataset for the Liver Cirrhosis Prediction System consists of the following 
 * SGOT (Serum Glutamic Oxaloacetic Transaminase): Another liver enzyme reflecting liver function; elevated levels may indicate liver problems.
 * Alkphos (Alkaline Phosphatase): An enzyme associated with the biliary system; elevated levels may indicate liver or bone issues.
 
-
+---
 ## **🖼️ Screenshots**
 
 👉 **Home Page of LCP**
@@ -67,6 +67,7 @@ The dataset for the Liver Cirrhosis Prediction System consists of the following 
 
 👉 **Report View**
 ![MLModelUI](https://github.com/toastsandwich/LCP/blob/main/GUI/reportView.png)
+---
 
 ### **🌟 Highlights**
 1. High Accuracy: Leverage Random Forest models for precise predictions of liver cirrhosis risk.
@@ -89,3 +90,6 @@ The dataset for the Liver Cirrhosis Prediction System consists of the following 
 3. Contribute to Research: Advance medical knowledge through data-driven insights.
 
 #### **📄 License**
+
+---
+##### Thank you, feel free to leave suggestions / edits
