@@ -44,9 +44,9 @@ The dataset for the Liver Cirrhosis Prediction System consists of the following 
 
 ## **🖼️ Screenshots**
 
-👉 **Any Diagram if needed**
+👉 **Home Page**
 
-![Noderedflow](https://github.com/AbhishekMali21/LIVER-PATIENT-ANALYSIS/blob/master/Screenshots/Node%20Red%20Flow.png)
+![Home Page](https://github.com/toastsandwich/LCP/blob/main/GUI/home.png)
 
 👉 **UI of the project**
 
