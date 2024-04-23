@@ -24,7 +24,7 @@ func SelectPatitentByID(patient_id string) (*models.Patient, error) {
 	return patient, nil
 }
 
-func CreatePatient(patient models.Patient) error {
+func CreatePatient(patient *models.Patient) error {
 	return db.Create(patient).Error
 }
 

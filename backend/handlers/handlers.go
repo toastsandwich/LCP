@@ -3,11 +3,14 @@ package handlers
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	session "github.com/spazzymoto/echo-scs-session"
+	"github.com/toastsandwich/LCP/config"
 	"github.com/toastsandwich/LCP/models"
 	"github.com/toastsandwich/LCP/repository/controllers"
 )
 
 func Init(echo *echo.Echo) {
+	echo.Use(session.LoadAndSave(config.SessionManager))
 	echo.Use(middleware.LoggerWithConfig(middleware.DefaultLoggerConfig))
 	echo.Use(middleware.CORS())
 	// routes for CRUD Doctor

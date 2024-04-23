@@ -19,7 +19,7 @@ func RegisterLabAssistant(ctx echo.Context) error {
 }
 
 func CreatePatient(ctx echo.Context) error {
-	return ctx.File("static/labassisant/create_patient.html")
+	return ctx.File("static/labassistant/create_patient.html")
 }
 
 func LabAssistantSeePatient(ctx echo.Context) error {

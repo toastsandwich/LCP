@@ -1,14 +1,16 @@
 package controllers
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
+	"github.com/toastsandwich/LCP/config"
 	"github.com/toastsandwich/LCP/models"
 	"github.com/toastsandwich/LCP/repository/query"
 	"golang.org/x/crypto/bcrypt"
 )
+
+var sessionManager = config.SessionManager
 
 func GetAllDoctors(ctx echo.Context) error {
 	docs, err := query.ShowAllDoctors()
@@ -63,8 +65,10 @@ func DoctorLogin(ctx echo.Context) error {
 	docid := ctx.FormValue("docid")
 	password := ctx.FormValue("password")
 	doc := query.AttemptLogin_DOC(docid, password)
-	fmt.Println(doc)
 	if doc != nil {
+		sessionManager.Put(ctx.Request().Context(), "firstname", doc.FirstName)
+		sessionManager.Put(ctx.Request().Context(), "lastname", doc.LastName)
+		// return ctx.JSON(http.StatusOK, doc)
 		return ctx.Redirect(http.StatusFound, "http://localhost:8080/doctor/home?doc_id="+doc.DocID+"&first_name="+doc.FirstName+"&last_name="+doc.LastName)
 	} else {
 		return ctx.Redirect(http.StatusFound, "http://localhost:8080/doctor/login")

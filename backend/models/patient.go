@@ -22,3 +22,20 @@ type Patient struct {
 	AG_RATIO    float32 `json:"a/g_ratio"`
 	Selector    uint    `json:"selector"`
 }
+
+type PatientRequest struct {
+	PatientID   string `json:"patient_id"`
+	FirstName   string `json:"first_name"`
+	LastName    string `json:"last_name"`
+	Gender      string `json:"gender"`
+	PhoneNumber string `json:"phone_number"`
+	EMail       string `json:"email"`
+	Age         string `json:"age"`
+	TB          string `json:"tb"`
+	DB          string `json:"db"`
+	Alkphos     string `json:"alkphos"`
+	SGPT        string `json:"sgpt"`
+	SGOT        string `json:"sgot"`
+	ALB         string `json:"alb"`
+	AG_RATIO    string `json:"a/g_ratio"`
+}

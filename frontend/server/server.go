@@ -2,6 +2,7 @@ package server
 
 import (
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"github.com/toastsandwich/frontend/pages"
 )
 
@@ -14,6 +15,7 @@ func Start(addr string) {
 }
 
 func routes(app *echo.Echo) {
+	app.Use(middleware.LoggerWithConfig(middleware.DefaultLoggerConfig))
 	app.GET("/", pages.HomePage)
 	app.GET("/home", pages.HomePage)
 	app.GET("/admin/login", pages.AdminLoginPage)
@@ -24,9 +26,9 @@ func routes(app *echo.Echo) {
 	app.GET("/doctor/home", pages.DoctorHomePage)
 	app.GET("/lab-assistant/home", pages.LabAssistantHome)
 
-	app.GET("/doctor/patient/:id", pages.PatientInfoPage)
-	app.GET("/lab-assistant/patient/:id", pages.CreatePatient)
-	app.GET("/lab-assistant/patient/:id", pages.LabAssistantSeePatient)
+	app.GET("/doctor/patient", pages.PatientInfoPage)
+	app.GET("/lab-assistant/create/patient", pages.CreatePatient)
+	app.GET("/lab-assistant/patient", pages.LabAssistantSeePatient)
 
 	app.GET("/admin/register/doctor/", pages.RegisterDoctorPage)
 	app.GET("/admin/register/labassistant/", pages.RegisterLabAssistant)

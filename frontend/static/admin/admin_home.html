@@ -380,6 +380,12 @@
             });
         }
 
+        // Function to handle logout
+        function logout() {
+            // Redirect to the home page
+            window.location.href = "http://localhost:8080/home";
+        }
+
         // Fetch and populate the tables initially
         fetchDoctorsAndUpdateTable();
         fetchLabAssistantsAndUpdateTable();
