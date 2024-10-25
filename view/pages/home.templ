@@ -1,0 +1,82 @@
+package pages
+
+import "github.com/toastsandwich/LCP/view/layout"
+
+templ home() {
+	<div class="container-fluid mt-5">
+		<!-- Welcome Section -->
+		<div class="row justify-content-center">
+			<div class="col-lg-10 text-center">
+				<h1 class="display-4 text-primary">Welcome to the Liver Cirrhosis Prediction System</h1>
+				<p class="lead mt-3 text-secondary">Using Machine Learning to Predict Liver Cirrhosis</p>
+				<hr class="my-4"/>
+				<p>
+					This system leverages advanced machine learning algorithms, specifically 
+					the <strong>Random Forest</strong> model, to predict liver cirrhosis. 
+					With early detection, it aims to assist healthcare professionals in 
+					diagnosing and managing liver cirrhosis more effectively.
+				</p>
+			</div>
+		</div>
+		<hr class="my-4"/>
+		<div class="row mt-5">
+			<div class="col-lg-6">
+				<h2 class="text-success">About Liver Cirrhosis</h2>
+				<p class="text-info">
+					Liver cirrhosis is the severe scarring of the liver caused by long-term liver damage. 
+					The scarring is irreversible and can prevent the liver from functioning properly, 
+					leading to serious complications.
+				</p>
+			</div>
+			<div class="col-lg-6 text-center">
+				<img src="/assets/home/liver_cirrhosis.jpg" class="img-fluid rounded my-3" alt="Liver Cirrhosis"/>
+			</div>
+		</div>
+		<hr class="my-4"/>
+		<div class="row mt-5">
+			<div class="col-lg-6 text-center">
+				<img src="/assets/home/liver_causes.jpeg" class="img-fluid rounded my-3" alt="Causes of Liver Cirrhosis"/>
+			</div>
+			<div class="col-lg-6">
+				<h4 class="text-warning">Causes</h4>
+				<p class="text-muted">
+					Cirrhosis is commonly caused by chronic alcohol abuse, hepatitis infections, 
+					and fatty liver disease. As liver cells are repeatedly damaged, they are replaced 
+					with scar tissue, which disrupts the normal liver function.
+				</p>
+			</div>
+		</div>
+		<hr class="my-4"/>
+		<div class="row mt-5">
+			<div class="col-lg-6">
+				<h4 class="text-warning">Symptoms</h4>
+				<p class="text-muted">
+					Symptoms of liver cirrhosis include fatigue, easy bruising, jaundice (yellowing 
+					of the skin), and fluid accumulation in the abdomen. Early detection is key to 
+					managing cirrhosis and preventing further damage.
+				</p>
+			</div>
+			<div class="col-lg-6 text-center">
+				<img src="/assets/home/liver_symptoms.jpg" class="img-fluid rounded my-3" alt="Symptoms of Liver Cirrhosis"/>
+			</div>
+		</div>
+		<hr class="my-4"/>
+		<div class="row mt-5">
+			<div class="col-lg-6 text-center">
+				<img src="/assets/home/system_help.png" class="img-fluid rounded my-3" alt="How the System Helps"/>
+			</div>
+			<div class="col-lg-6">
+				<h4 class="text-warning">How Our System Helps</h4>
+				<p class="text-muted">
+					Our prediction system uses the Random Forest algorithm to analyze various patient 
+					data and predict the likelihood of liver cirrhosis. This tool can assist in the 
+					early detection of cirrhosis, allowing for timely intervention and management.
+				</p>
+			</div>
+		</div>
+	</div>
+}
+
+templ Home() {
+	@layout.Base("LCP Home", home())
+}

@@ -1,16 +1,27 @@
 package layout
 
-templ Base(title string) {
+import "github.com/toastsandwich/LCP/view/partial"
+
+// Base is the basic layout for the UI.
+// 'component' and 'title' are used according to specific pages.
+templ Base(title string, component templ.Component) {
 	<!DOCTYPE html>
 	<html lang="en">
-		<head>
-			<meta charset="UTF-8"/>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-			<link rel="stylesheet" href="css/pico.min.css"/>
-			<title>{ title }</title>
-		</head>
-		<body>
-			<h1 class="contianer">Hello World</h1>
+		// header
+        @partial.Header(title)
+        // body
+		<body class="d-flex flex-column min-vh-100">
+			// nav bar
+			@partial.Nav()
+			// Main content area
+			<div class="container flex-grow-1">
+				// using flush ensuring all the components' children are rendered first.
+				@templ.Flush() {
+					@component
+				}
+			</div>
+			// footer
+			@partial.Footer()
 		</body>
 	</html>
 }
