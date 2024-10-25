@@ -16,7 +16,7 @@ mkdir -p bin
 if templ generate; then
     echo -e "${GREEN}Templ generatation complete.${NC}"
 else
-    echo -e "${RUN}Templ generatation failed.${NC}"
+    echo -e "${RED}Templ generatation failed.${NC}"
     exit 1
 fi
 
