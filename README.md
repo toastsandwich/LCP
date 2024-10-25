@@ -22,7 +22,6 @@ Patients with Liver disease have been continuously increasing because of excessi
 - [@ShreyasMali](https://github.com/toastsandwich) - **Shreyas Mali** 
 - [@PrasannaPandhare](https://github.com/Prasannapandhare) - **Prasanna Pandhare**
 - [@VaishnaviNaik](https://github.com/vaishnavi0022) - **Vaishnavi Naik**
-- [@VirendraMuley](https://github.com/Viren7502) - **Virendra Muley**
 
 ## **📊 Dataset**
 The Liver Cirrhosis Prediction System utilizes a comprehensive dataset collected from Kaggle that includes various clinical and demographic data points related to liver cirrhosis. The dataset is carefully validated and cleaned to ensure high-quality data for training and testing machine learning models.
